@@ -10,26 +10,31 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.servers.Server;
 
 @OpenAPIDefinition(
-        info = @Info(title = "swagger basic example",
-        description = "this api is for student info",
-        termsOfService = "All The Terms and condition applied ...",
-        contact = @Contact(name = "developedByAdil",
-        email="adil@gmail.com",
-        url = "adil.com"),
-                license = @License(name = "Adil Raza"
-
-                ),
+        info = @Info(
+                title = "swagger basic example",
+                description = "this api is for student info",
+                termsOfService = "All The Terms and condition applied ...",
+                contact = @Contact(
+                name = "developedByAdil",
+                email="adil@gmail.com",
+                url = "adil.com"),
+                license = @License
+                    (name = "Adil Raza"),
                 version = "Api/V1"
 ),
-        servers ={ @Server(description = "testEnv",url = "localhost:8081"),
-        @Server(description = "devEnv",url = "localhost:8081")}
+        servers ={ @Server
+                  (description = "testEnv",url = "localhost:8081"),
+        @Server(description = "devEnv",url = "localhost:8081")},
+
+        security = @SecurityRequirement(name = "androSecurity")
 
 )
 
 @SecurityScheme(
         type = SecuritySchemeType.HTTP,
-        name = "androSecurity", in = SecuritySchemeIn.HEADER,
-bearerFormat = "Bearer",
+        name = "androSecurity", 
+        in = SecuritySchemeIn.HEADER,
+       bearerFormat = "Bearer",
         description = "this is my basic security"
 )
 public class SwaggerConfig {
